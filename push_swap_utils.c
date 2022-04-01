@@ -6,7 +6,7 @@
 /*   By: omanar <omanar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/20 16:42:40 by omanar            #+#    #+#             */
-/*   Updated: 2022/03/29 18:06:39 by omanar           ###   ########.fr       */
+/*   Updated: 2022/03/30 20:39:17 by omanar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	is_integer(char **av, int ac)
 		if (av[i][0] == 0)
 			error("Error\nEmpty string\n");
 		j = 0;
-		if (av[i][0] == '-' && av[i][1])
+		if ((av[i][0] == '-' || av[i][0] == '+') && av[i][1])
 			j++;
 		while (av[i][j])
 		{
@@ -62,4 +62,24 @@ int	is_repeated(char **av, int ac)
 		i++;
 	}
 	return (0);
+}
+
+int	is_sorting(char **av, int ac)
+{
+	int	i;
+	int	j;
+
+	i = 1;
+	while (i <= ac)
+	{
+		j = i + 1;
+		while (j <= ac)
+		{
+			if (ft_atoi(av[i]) > ft_atoi(av[j]))
+				return (0);
+			j++;
+		}
+		i++;
+	}
+	return (1);
 }

@@ -3,7 +3,7 @@ CC =	gcc
 RM =	rm -f
 LIBFT	=	libft/libft.a
 
-SRCS =	push_swap.c push_swap_utils.c $(LIBFT)
+SRCS =	push_swap.c push_swap_utils.c operations.c $(LIBFT)
 OBJS =	$(SRCS:.c=.o)
 
 NC=\033[0m
