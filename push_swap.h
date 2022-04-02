@@ -6,7 +6,7 @@
 /*   By: omanar <omanar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/20 17:02:38 by omanar            #+#    #+#             */
-/*   Updated: 2022/04/02 00:49:39 by omanar           ###   ########.fr       */
+/*   Updated: 2022/04/02 18:09:10 by omanar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,11 @@ int		is_repeated(char **av, int ac);
 int		is_sorting(char **av, int ac);
 void	stack_filling(t_list **a, t_list **b, char **av);
 void	swap(t_list **s, char c);
-void	ss(t_list **a, t_list **b);
 void	push(t_list **a, t_list **b, char c);
 void	rotate(t_list **s, char c);
-void	rr(t_list **a, t_list **b);
 void	reverse_rotate(t_list **s, char c);
+void	ss(t_list **a, t_list **b);
+void	rr(t_list **a, t_list **b);
 void	rrr(t_list **a, t_list **b);
 
 #endif

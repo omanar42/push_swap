@@ -6,26 +6,11 @@
 /*   By: omanar <omanar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/20 16:16:16 by omanar            #+#    #+#             */
-/*   Updated: 2022/04/02 18:03:37 by omanar           ###   ########.fr       */
+/*   Updated: 2022/04/02 18:08:48 by omanar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	stack_filling(t_list **a, t_list **b, char **av)
-{
-	int	i;
-	int	tmp;
-
-	i = 1;
-	while (av[i])
-	{
-		tmp = ft_atoi(av[i]);
-		ft_lstadd_back(a, ft_lstnew(tmp));
-		i++;
-	}
-	ft_lstadd_back(b, NULL);
-}
 
 int	main(int ac, char **av)
 {
