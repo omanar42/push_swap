@@ -6,7 +6,7 @@
 /*   By: omanar <omanar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/20 16:16:16 by omanar            #+#    #+#             */
-/*   Updated: 2022/04/01 15:54:33 by omanar           ###   ########.fr       */
+/*   Updated: 2022/04/02 18:03:37 by omanar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,17 +36,5 @@ int	main(int ac, char **av)
 		|| is_sorting(av, ac - 1))
 		return (0);
 	stack_filling(&a, &b, av);
-	printf("---------------- stack a ----------------\n");
-	while (a)
-	{
-		printf("%d\n", a->content);
-		a = a->next;
-	}
-	printf("---------------- stack b ----------------\n");
-	while (b)
-	{
-		printf("%d\n", b->content);
-		b = b->next;
-	}
 	return (1);
 }
