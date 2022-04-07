@@ -6,7 +6,7 @@
 /*   By: omanar <omanar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/20 16:42:40 by omanar            #+#    #+#             */
-/*   Updated: 2022/04/02 18:08:37 by omanar           ###   ########.fr       */
+/*   Updated: 2022/04/05 23:12:05 by omanar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,26 +64,6 @@ int	is_repeated(char **av, int ac)
 	return (0);
 }
 
-int	is_sorting(char **av, int ac)
-{
-	int	i;
-	int	j;
-
-	i = 1;
-	while (i <= ac)
-	{
-		j = i + 1;
-		while (j <= ac)
-		{
-			if (ft_atoi(av[i]) > ft_atoi(av[j]))
-				return (0);
-			j++;
-		}
-		i++;
-	}
-	return (1);
-}
-
 void	stack_filling(t_list **a, t_list **b, char **av)
 {
 	int	i;
@@ -97,4 +77,18 @@ void	stack_filling(t_list **a, t_list **b, char **av)
 		i++;
 	}
 	ft_lstadd_back(b, NULL);
+}
+
+int	is_stack_sorted(t_list *s)
+{
+	int	tmp;
+
+	while (s->next)
+	{
+		tmp = s->content;
+		s = s->next;
+		if (tmp > s->content)
+			return (0);
+	}
+	return (1);
 }
