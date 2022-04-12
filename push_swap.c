@@ -6,7 +6,7 @@
 /*   By: omanar <omanar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/20 16:16:16 by omanar            #+#    #+#             */
-/*   Updated: 2022/04/12 02:48:04 by omanar           ###   ########.fr       */
+/*   Updated: 2022/04/12 03:50:07 by omanar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,31 @@ void	push_chunk(t_list **a, t_list **b, int ac, int *arr)
 	}
 }
 
+void	finish_them(t_list **a, t_list **b)
+{
+	int	index;
+
+	while (*b)
+	{
+		index = get_big_index(*b);
+		if (index == 0)
+			push(a, b, 'a');
+		else
+		{
+			if (index > ft_lstsize(*b) / 2)
+			{
+				reverse_rotate(b, 'b');
+				index = get_big_index(*b);
+			}
+			else
+			{
+				rotate(b, 'b');
+				index = get_big_index(*b);
+			}
+		}
+	}
+}
+
 void	sorting_process_2(t_list **a, t_list **b, int ac)
 {
 	int	*arr;
@@ -70,6 +95,7 @@ void	sorting_process_2(t_list **a, t_list **b, int ac)
 	while (*a)
 		push_chunk(a, b, ac, arr);
 	free(arr);
+	finish_them(a, b);
 }
 
 int	main(int ac, char **av)
@@ -82,9 +108,9 @@ int	main(int ac, char **av)
 	stack_filling(&a, &b, av);
 	if (is_stack_sorted(a))
 		return (0);
-	if (ft_lstsize(a) <= 10)
+	if (ft_lstsize(a) <= 15)
 		sorting_process(&a, &b, ac - 1);
-	if (ft_lstsize(a) > 10)
+	if (ft_lstsize(a) > 15)
 		sorting_process_2(&a, &b, ac - 1);
 	return (0);
 }
