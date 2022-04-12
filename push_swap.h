@@ -6,7 +6,7 @@
 /*   By: omanar <omanar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/20 17:02:38 by omanar            #+#    #+#             */
-/*   Updated: 2022/04/06 23:20:36 by omanar           ###   ########.fr       */
+/*   Updated: 2022/04/12 02:47:24 by omanar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,8 @@ void	sorting_two(t_list **s, char c);
 void	sorting_three(t_list **s, char c);
 int		get_big_number(t_list *s);
 int		get_small_number(t_list *s);
+int		get_min_index(t_list *s);
+int		get_big_index(t_list *s);
+int		*alloc_arr(t_list *a, int ac);
 
 #endif
