@@ -6,13 +6,13 @@
 /*   By: omanar <omanar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/07 03:26:45 by omanar            #+#    #+#             */
-/*   Updated: 2022/04/14 01:23:21 by omanar           ###   ########.fr       */
+/*   Updated: 2022/04/14 05:38:41 by omanar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	get_min_index(t_list *s)
+int	get_small_index(t_list *s)
 {
 	int	i;
 	int	index;
@@ -56,7 +56,26 @@ int	get_big_index(t_list *s)
 	return (index);
 }
 
-int	*alloc_arr(t_list *a, int ac)
+int	is_head_exist(int nb, int *arr, int i, int range)
+{
+	if (nb >= arr[i] && nb <= arr[range - 1])
+		return (1);
+	else
+		return (0);
+}
+
+int	is_biggest_exist(int nb, t_list *s)
+{
+	while (s)
+	{
+		if (s->content == nb)
+			return (1);
+		s = s->next;
+	}
+	return (0);
+}
+
+int	*create_array(t_list *a, int ac)
 {
 	int	tmps[3];
 	int	*arr;

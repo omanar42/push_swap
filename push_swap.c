@@ -6,7 +6,7 @@
 /*   By: omanar <omanar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/20 16:16:16 by omanar            #+#    #+#             */
-/*   Updated: 2022/04/14 01:56:23 by omanar           ###   ########.fr       */
+/*   Updated: 2022/04/14 05:13:42 by omanar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	main(int ac, char **av)
 	if (is_stack_sorted(a))
 		return (0);
 	if (ft_lstsize(a) <= 15)
-		sorting_process(&a, &b, ac - 1);
+		small_sorting_process(&a, &b, ac - 1);
 	if (ft_lstsize(a) > 15)
 		big_sorting_process(&a, &b, ac - 1);
 	return (0);

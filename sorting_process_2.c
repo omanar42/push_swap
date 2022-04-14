@@ -6,19 +6,11 @@
 /*   By: omanar <omanar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 04:51:26 by omanar            #+#    #+#             */
-/*   Updated: 2022/04/14 01:48:36 by omanar           ###   ########.fr       */
+/*   Updated: 2022/04/14 05:35:08 by omanar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-int	is_head_exist(int nb, int *arr, int i, int range)
-{
-	if (nb >= arr[i] && nb <= arr[range - 1])
-		return (1);
-	else
-		return (0);
-}
 
 void	get_range(int *range1, int *range2, int ac, int *count)
 {
@@ -44,9 +36,9 @@ void	get_range(int *range1, int *range2, int ac, int *count)
 
 void	push_chunk(t_list **a, t_list **b, int ac, int *arr)
 {
+	int			count;
 	static int	range1 = 0;
 	static int	range2 = 0;
-	int			count;
 
 	get_range(&range1, &range2, ac, &count);
 	while (ft_lstsize(*b) != count && *a)
@@ -62,18 +54,7 @@ void	push_chunk(t_list **a, t_list **b, int ac, int *arr)
 	}
 }
 
-int	is_biggest_exist(int nb, t_list *s)
-{
-	while (s)
-	{
-		if (s->content == nb)
-			return (1);
-		s = s->next;
-	}
-	return (0);
-}
-
-int	get_tail(t_list *s)
+int	get_last(t_list *s)
 {
 	while (s->next)
 		s = s->next;
@@ -84,7 +65,7 @@ void	do_that(t_list **a, t_list **b, int *down)
 {
 	int			index;
 
-	if (*down == 0 || (*b)->content > get_tail(*a))
+	if (*down == 0 || (*b)->content > get_last(*a))
 	{
 		push(a, b, 'a');
 		rotate(a, 'a');

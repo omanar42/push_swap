@@ -1,13 +1,13 @@
-NAME = 	push_swap
-CC =	gcc
-RM =	rm -f
+NAME	=	push_swap
+CC		=	gcc
+RM		=	rm -f
 LIBFT	=	libft/libft.a
 
-SRCS =	push_swap.c push_swap_utils.c push_swap_utils_2.c operations.c operations_2.c sorting_process.c sorting_process_2.c $(LIBFT)
-OBJS =	$(SRCS:.c=.o)
+SRCS	=	push_swap.c push_swap_utils.c push_swap_utils_2.c operations.c operations_2.c sorting_process.c sorting_process_2.c $(LIBFT)
+OBJS	=	$(SRCS:.c=.o)
 
-NC=\033[0m
-GREEN=\033[0;32m
+NC		=	\033[0m
+GREEN	=	\033[0;32m
 
 define HEADER_M
 			                    .__                                         
@@ -23,13 +23,13 @@ export HEADER_M
 all:	header $(NAME)
 
 header:
-	@echo " ${GREEN}$$HEADER_M${NC} "
+		@echo " ${GREEN}$$HEADER_M${NC} "
 
-%.o:	%.c
+%.o: %.c
 		$(CC) -Wall -Wextra -Werror -c $< -o $@
 
-$(LIBFT) :
-	make -C libft
+$(LIBFT):
+		make -C libft
 
 $(NAME): $(OBJS) $(LIBFT)
 		$(CC) $(OBJS) -o $(NAME)
