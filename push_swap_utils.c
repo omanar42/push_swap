@@ -6,7 +6,7 @@
 /*   By: omanar <omanar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/20 16:42:40 by omanar            #+#    #+#             */
-/*   Updated: 2022/04/05 23:12:05 by omanar           ###   ########.fr       */
+/*   Updated: 2022/04/14 00:51:52 by omanar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,12 +83,16 @@ int	is_stack_sorted(t_list *s)
 {
 	int	tmp;
 
-	while (s->next)
+	if (s)
 	{
-		tmp = s->content;
-		s = s->next;
-		if (tmp > s->content)
-			return (0);
+		while (s->next)
+		{
+			tmp = s->content;
+			s = s->next;
+			if (tmp > s->content)
+				return (0);
+		}
+		return (1);
 	}
-	return (1);
+	return (0);
 }

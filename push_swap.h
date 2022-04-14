@@ -6,7 +6,7 @@
 /*   By: omanar <omanar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/20 17:02:38 by omanar            #+#    #+#             */
-/*   Updated: 2022/04/12 02:47:24 by omanar           ###   ########.fr       */
+/*   Updated: 2022/04/14 01:56:45 by omanar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,18 @@ void	reverse_rotate(t_list **s, char c);
 void	ss(t_list **a, t_list **b);
 void	rr(t_list **a, t_list **b);
 void	rrr(t_list **a, t_list **b);
-void	sorting_process(t_list **a, t_list **b, int ac);
 void	sorting_two(t_list **s, char c);
 void	sorting_three(t_list **s, char c);
-int		get_big_number(t_list *s);
+void	sorting_process(t_list **a, t_list **b, int ac);
+void	big_sorting_process(t_list **a, t_list **b, int ac);
 int		get_small_number(t_list *s);
+int		get_big_number(t_list *s);
 int		get_min_index(t_list *s);
 int		get_big_index(t_list *s);
 int		*alloc_arr(t_list *a, int ac);
+void	push_chunk(t_list **a, t_list **b, int ac, int *arr);
+void	get_range(int *range1, int *range2, int ac, int *count);
+int		is_head_exist(int nb, int *arr, int i, int range);
+void	finish_them(t_list **a, t_list **b, int *arr, int ac);
 
 #endif
