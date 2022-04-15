@@ -6,7 +6,7 @@
 /*   By: omanar <omanar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/14 22:59:26 by omanar            #+#    #+#             */
-/*   Updated: 2022/04/15 01:30:47 by omanar           ###   ########.fr       */
+/*   Updated: 2022/04/15 02:31:32 by omanar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	check_if(t_list **a, t_list **b, char *str)
 	else if (!ft_strncmp(str, "rrr\n", 4))
 		rrr(a, b, 0);
 	else
-		error("Error: Instruction doesn’t exist\n");
+		error("Error\n");
 }
 
 void	checker(t_list **a, t_list **b)
