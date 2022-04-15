@@ -6,11 +6,22 @@
 /*   By: omanar <omanar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/07 03:26:45 by omanar            #+#    #+#             */
-/*   Updated: 2022/04/14 05:38:41 by omanar           ###   ########.fr       */
+/*   Updated: 2022/04/15 06:22:41 by omanar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	arg_check(char **str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+		i++;
+	is_integer(str, i, 0);
+	is_repeated(str, i, 0);
+}
 
 int	get_small_index(t_list *s)
 {
@@ -73,33 +84,4 @@ int	is_biggest_exist(int nb, t_list *s)
 		s = s->next;
 	}
 	return (0);
-}
-
-int	*create_array(t_list *a, int ac)
-{
-	int	tmps[3];
-	int	*arr;
-
-	arr = (int *)malloc(sizeof(int) * ac);
-	tmps[0] = 0;
-	while (tmps[0] < ac)
-	{
-		arr[tmps[0]++] = a->content;
-		a = a->next;
-	}
-	tmps[0] = -1;
-	while (++tmps[0] < ac)
-	{
-		tmps[1] = 0;
-		while (++tmps[1] + tmps[0] < ac)
-		{
-			if (arr[tmps[0]] > arr[tmps[1] + tmps[0]])
-			{
-				tmps[2] = arr[tmps[0]];
-				arr[tmps[0]] = arr[tmps[1] + tmps[0]];
-				arr[tmps[1] + tmps[0]] = tmps[2];
-			}
-		}
-	}
-	return (arr);
 }

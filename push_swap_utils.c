@@ -6,7 +6,7 @@
 /*   By: omanar <omanar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/20 16:42:40 by omanar            #+#    #+#             */
-/*   Updated: 2022/04/15 01:58:02 by omanar           ###   ########.fr       */
+/*   Updated: 2022/04/15 07:17:53 by omanar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,16 +18,18 @@ void	error(char *str)
 	exit(1);
 }
 
-int	is_integer(char **av, int ac)
+int	is_integer(char **av, int ac, int nb)
 {
 	int	i;
 	int	j;
 
-	i = 1;
-	while (i <= ac)
+	i = nb;
+	while (av[i])
 	{
 		if (ft_atoi(av[i]) > 2147483647 || ft_atoi(av[i]) < -2147483648)
 			error("Error\n");
+		if (ac == 1)
+			return (0);
 		if (av[i][0] == 0)
 			error("Error\n");
 		j = 0;
@@ -44,16 +46,18 @@ int	is_integer(char **av, int ac)
 	return (0);
 }
 
-int	is_repeated(char **av, int ac)
+int	is_repeated(char **av, int ac, int nb)
 {
 	int	i;
 	int	j;
 
-	i = 1;
-	while (i <= ac)
+	i = nb;
+	if (ac == 1)
+		return (0);
+	while (av[i])
 	{
 		j = i + 1;
-		while (j <= ac)
+		while (av[j])
 		{
 			if (ft_atoi(av[i]) == ft_atoi(av[j]))
 				error("Error\n");
@@ -64,19 +68,33 @@ int	is_repeated(char **av, int ac)
 	return (0);
 }
 
-void	stack_filling(t_list **a, t_list **b, char **av)
+void	stack_filling(t_list **a, char **av, int ac)
 {
-	int	i;
-	int	tmp;
+	int		i;
+	int		tmp;
+	char	**str;
 
-	i = 1;
-	while (av[i])
+	i = 0;
+	if (ac == 1)
 	{
-		tmp = ft_atoi(av[i]);
-		ft_lstadd_back(a, ft_lstnew(tmp));
-		i++;
+		str = ft_split(av[1], ' ');
+		arg_check(str);
+		while (str[i])
+		{
+			tmp = ft_atoi(str[i]);
+			ft_lstadd_back(a, ft_lstnew(tmp));
+			free(str[i++]);
+		}
+		free(str);
 	}
-	ft_lstadd_back(b, NULL);
+	else
+	{
+		while (av[++i])
+		{
+			tmp = ft_atoi(av[i]);
+			ft_lstadd_back(a, ft_lstnew(tmp));
+		}
+	}
 }
 
 int	is_stack_sorted(t_list *s)

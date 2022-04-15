@@ -6,7 +6,7 @@
 /*   By: omanar <omanar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 04:48:09 by omanar            #+#    #+#             */
-/*   Updated: 2022/04/15 01:26:36 by omanar           ###   ########.fr       */
+/*   Updated: 2022/04/15 06:22:45 by omanar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,35 @@ void	small_sorting_process(t_list **a, t_list **b, int ac)
 		sort_two(a, 'a');
 	while (*b)
 		push(a, b, 'a', 1);
+}
+
+int	*create_array(t_list *a, int ac)
+{
+	int	tmps[3];
+	int	*arr;
+
+	arr = (int *)malloc(sizeof(int) * ac);
+	tmps[0] = 0;
+	while (tmps[0] < ac)
+	{
+		arr[tmps[0]++] = a->content;
+		a = a->next;
+	}
+	tmps[0] = -1;
+	while (++tmps[0] < ac)
+	{
+		tmps[1] = 0;
+		while (++tmps[1] + tmps[0] < ac)
+		{
+			if (arr[tmps[0]] > arr[tmps[1] + tmps[0]])
+			{
+				tmps[2] = arr[tmps[0]];
+				arr[tmps[0]] = arr[tmps[1] + tmps[0]];
+				arr[tmps[1] + tmps[0]] = tmps[2];
+			}
+		}
+	}
+	return (arr);
 }
 
 void	big_sorting_process(t_list **a, t_list **b, int ac)

@@ -6,7 +6,7 @@
 /*   By: omanar <omanar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/20 17:02:38 by omanar            #+#    #+#             */
-/*   Updated: 2022/04/15 01:16:24 by omanar           ###   ########.fr       */
+/*   Updated: 2022/04/15 06:18:06 by omanar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@
 # include <stdio.h>
 
 void	error(char *str);
-int		is_integer(char **av, int ac);
-int		is_repeated(char **av, int ac);
-void	stack_filling(t_list **a, t_list **b, char **av);
+int		is_integer(char **av, int ac, int nb);
+int		is_repeated(char **av, int ac, int nb);
+void	stack_filling(t_list **a, char **av, int ac);
 int		is_stack_sorted(t_list *s);
 void	swap(t_list **s, char c);
 void	push(t_list **a, t_list **b, char c, int i);
@@ -29,6 +29,7 @@ void	reverse_rotate(t_list **s, char c);
 void	ss(t_list **a, t_list **b, int i);
 void	rr(t_list **a, t_list **b, int i);
 void	rrr(t_list **a, t_list **b, int i);
+void	arg_check(char **str);
 void	sort_two(t_list **s, char c);
 void	sort_three(t_list **s, char c);
 void	small_sorting_process(t_list **a, t_list **b, int ac);

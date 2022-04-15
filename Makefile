@@ -5,7 +5,7 @@ RM		=	rm -f
 LIBFT	=	libft/libft.a
 
 SRCS	=	push_swap.c push_swap_utils.c push_swap_utils_2.c operations.c operations_2.c sorting_process.c sorting_process_2.c $(LIBFT)
-SRCSBN	=	checker.c push_swap_utils.c operations.c operations_2.c get_next_line/get_next_line.c get_next_line/get_next_line_utils.c $(LIBFT)
+SRCSBN	=	checker.c push_swap_utils.c push_swap_utils_2.c operations.c operations_2.c get_next_line/get_next_line.c get_next_line/get_next_line_utils.c $(LIBFT)
 OBJS	=	$(SRCS:.c=.o)
 OBJSBN	=	$(SRCSBN:.c=.o)
 

@@ -6,7 +6,7 @@
 /*   By: omanar <omanar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/14 22:59:26 by omanar            #+#    #+#             */
-/*   Updated: 2022/04/15 02:31:32 by omanar           ###   ########.fr       */
+/*   Updated: 2022/04/15 06:28:52 by omanar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,9 +59,9 @@ int	main(int ac, char **av)
 	t_list	*a;
 	t_list	*b;
 
-	if (ac == 1 || is_integer(av, ac - 1) || is_repeated(av, ac - 1))
+	if (ac == 1 || is_integer(av, ac - 1, 1) || is_repeated(av, ac - 1, 1))
 		return (0);
-	stack_filling(&a, &b, av);
+	stack_filling(&a, av, 0);
 	checker(&a, &b);
 	if (is_stack_sorted(a) && !b)
 		write(1, "OK\n", 3);
