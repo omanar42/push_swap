@@ -6,7 +6,7 @@
 /*   By: omanar <omanar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 19:01:25 by omanar            #+#    #+#             */
-/*   Updated: 2022/04/02 17:25:31 by omanar           ###   ########.fr       */
+/*   Updated: 2022/04/15 01:16:46 by omanar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	swap(t_list **s, char c)
 		ft_putstr_fd("sb\n", 1);
 }
 
-void	push(t_list **a, t_list **b, char c)
+void	push(t_list **a, t_list **b, char c, int i)
 {
 	t_list	*tmp;
 
@@ -39,7 +39,8 @@ void	push(t_list **a, t_list **b, char c)
 		*b = (*b)->next;
 		tmp->next = NULL;
 		ft_lstadd_front(a, tmp);
-		ft_putstr_fd("pa\n", 1);
+		if (i != 0)
+			ft_putstr_fd("pa\n", 1);
 	}
 	else if (c == 'b')
 	{
@@ -49,7 +50,8 @@ void	push(t_list **a, t_list **b, char c)
 		*a = (*a)->next;
 		tmp->next = NULL;
 		ft_lstadd_front(b, tmp);
-		ft_putstr_fd("pb\n", 1);
+		if (i != 0)
+			ft_putstr_fd("pb\n", 1);
 	}
 }
 

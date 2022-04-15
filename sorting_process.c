@@ -6,7 +6,7 @@
 /*   By: omanar <omanar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 04:48:09 by omanar            #+#    #+#             */
-/*   Updated: 2022/04/14 05:23:07 by omanar           ###   ########.fr       */
+/*   Updated: 2022/04/15 01:26:36 by omanar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	small_sorting_process(t_list **a, t_list **b, int ac)
 		index = get_small_index(*a);
 		if (index == 0)
 		{
-			push(a, b, 'b');
+			push(a, b, 'b', 1);
 			ac--;
 		}
 		else
@@ -59,7 +59,7 @@ void	small_sorting_process(t_list **a, t_list **b, int ac)
 	else if (ft_lstsize(*a) == 2)
 		sort_two(a, 'a');
 	while (*b)
-		push(a, b, 'a');
+		push(a, b, 'a', 1);
 }
 
 void	big_sorting_process(t_list **a, t_list **b, int ac)

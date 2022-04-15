@@ -21,7 +21,7 @@ $(NAME):
 	ar rcs $(NAME) $(OBJS)
 
 clean:
-	${RM} ${OBJS} ${BONUS_OBJS}
+	${RM} ${OBJS}
 
 fclean:	clean
 	${RM} ${NAME}

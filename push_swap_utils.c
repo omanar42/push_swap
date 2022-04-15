@@ -6,7 +6,7 @@
 /*   By: omanar <omanar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/20 16:42:40 by omanar            #+#    #+#             */
-/*   Updated: 2022/04/14 00:51:52 by omanar           ###   ########.fr       */
+/*   Updated: 2022/04/14 20:00:53 by omanar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,16 +27,16 @@ int	is_integer(char **av, int ac)
 	while (i <= ac)
 	{
 		if (ft_atoi(av[i]) > 2147483647 || ft_atoi(av[i]) < -2147483648)
-			error("Error\nNot an integer\n");
+			error("Error: Some arguments aren’t integers\n");
 		if (av[i][0] == 0)
-			error("Error\nEmpty string\n");
+			error("Error: Some arguments are empty\n");
 		j = 0;
 		if ((av[i][0] == '-' || av[i][0] == '+') && av[i][1])
 			j++;
 		while (av[i][j])
 		{
 			if ((av[i][j] < '0' || av[i][j] > '9'))
-				error("Error\nNot a number\n");
+				error("Error: Some arguments aren’t numbers\n");
 			j++;
 		}
 		i++;
@@ -56,7 +56,7 @@ int	is_repeated(char **av, int ac)
 		while (j <= ac)
 		{
 			if (ft_atoi(av[i]) == ft_atoi(av[j]))
-				error("Error Double\n");
+				error("Error: There are duplicates\n");
 			j++;
 		}
 		i++;

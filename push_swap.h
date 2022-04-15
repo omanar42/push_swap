@@ -6,7 +6,7 @@
 /*   By: omanar <omanar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/20 17:02:38 by omanar            #+#    #+#             */
-/*   Updated: 2022/04/14 05:39:28 by omanar           ###   ########.fr       */
+/*   Updated: 2022/04/15 01:16:24 by omanar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define PUSH_SWAP_H
 
 # include "libft/libft.h"
+# include "get_next_line/get_next_line.h"
 # include <stdio.h>
 
 void	error(char *str);
@@ -22,12 +23,12 @@ int		is_repeated(char **av, int ac);
 void	stack_filling(t_list **a, t_list **b, char **av);
 int		is_stack_sorted(t_list *s);
 void	swap(t_list **s, char c);
-void	push(t_list **a, t_list **b, char c);
+void	push(t_list **a, t_list **b, char c, int i);
 void	rotate(t_list **s, char c);
 void	reverse_rotate(t_list **s, char c);
-void	ss(t_list **a, t_list **b);
-void	rr(t_list **a, t_list **b);
-void	rrr(t_list **a, t_list **b);
+void	ss(t_list **a, t_list **b, int i);
+void	rr(t_list **a, t_list **b, int i);
+void	rrr(t_list **a, t_list **b, int i);
 void	sort_two(t_list **s, char c);
 void	sort_three(t_list **s, char c);
 void	small_sorting_process(t_list **a, t_list **b, int ac);

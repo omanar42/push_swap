@@ -6,7 +6,7 @@
 /*   By: omanar <omanar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 04:51:26 by omanar            #+#    #+#             */
-/*   Updated: 2022/04/14 05:35:08 by omanar           ###   ########.fr       */
+/*   Updated: 2022/04/15 01:27:53 by omanar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	push_chunk(t_list **a, t_list **b, int ac, int *arr)
 	{
 		if (is_head_exist((*a)->content, arr, range1, range2))
 		{
-			push(a, b, 'b');
+			push(a, b, 'b', 1);
 			if ((*b)->content < arr[ac / 2])
 				rotate(b, 'b');
 		}
@@ -67,7 +67,7 @@ void	do_that(t_list **a, t_list **b, int *down)
 
 	if (*down == 0 || (*b)->content > get_last(*a))
 	{
-		push(a, b, 'a');
+		push(a, b, 'a', 1);
 		rotate(a, 'a');
 		(*down)++;
 	}
@@ -90,7 +90,7 @@ void	finish_them(t_list **a, t_list **b, int *arr, int ac)
 	{
 		if ((*b)->content == arr[ac - i])
 		{
-			push(a, b, 'a');
+			push(a, b, 'a', 1);
 			i++;
 		}
 		else

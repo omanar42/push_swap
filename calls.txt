@@ -1,0 +1,31 @@
+sa = swap(&a, 'a');
+sb = swap(&b, 'b');
+ss = ss(&a, &b);
+
+pa = push(&a, &b, 'a');
+pb = push(&a, &b, 'b');
+
+ra = rotate(&a, 'a');
+rb = rotate(&b, 'b');
+rr = rr(&a, &b);
+
+rra = reverse_rotate(&a, 'a');
+rrb = reverse_rotate(&b, 'b');
+rrr = rrr(&a, &b);
+
+
+
+
+
+	printf("---------------- stack a ----------------\n");
+	while (a)
+	{
+		printf("%d\n", a->content);
+		a = a->next;
+	}
+	printf("---------------- stack b ----------------\n");
+	while (b)
+	{
+		printf("%d\n", b->content);
+		b = b->next;
+	}
