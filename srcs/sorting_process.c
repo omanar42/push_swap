@@ -6,11 +6,11 @@
 /*   By: omanar <omanar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 04:48:09 by omanar            #+#    #+#             */
-/*   Updated: 2022/04/15 06:22:45 by omanar           ###   ########.fr       */
+/*   Updated: 2022/04/19 01:50:57 by omanar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../include/push_swap.h"
 
 void	sort_two(t_list **s, char c)
 {
@@ -43,7 +43,7 @@ void	small_sorting_process(t_list **a, t_list **b, int ac)
 		index = get_small_index(*a);
 		if (index == 0)
 		{
-			push(a, b, 'b', 1);
+			push(a, b, 'b');
 			ac--;
 		}
 		else
@@ -59,7 +59,7 @@ void	small_sorting_process(t_list **a, t_list **b, int ac)
 	else if (ft_lstsize(*a) == 2)
 		sort_two(a, 'a');
 	while (*b)
-		push(a, b, 'a', 1);
+		push(b, a, 'a');
 }
 
 int	*create_array(t_list *a, int ac)

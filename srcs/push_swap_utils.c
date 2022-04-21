@@ -6,11 +6,11 @@
 /*   By: omanar <omanar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/20 16:42:40 by omanar            #+#    #+#             */
-/*   Updated: 2022/04/15 07:17:53 by omanar           ###   ########.fr       */
+/*   Updated: 2022/04/21 00:06:35 by omanar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../include/push_swap.h"
 
 void	error(char *str)
 {

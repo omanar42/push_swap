@@ -6,11 +6,11 @@
 /*   By: omanar <omanar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/14 22:59:26 by omanar            #+#    #+#             */
-/*   Updated: 2022/04/15 06:28:52 by omanar           ###   ########.fr       */
+/*   Updated: 2022/04/21 00:06:03 by omanar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../include/push_swap.h"
 
 void	check_if(t_list **a, t_list **b, char *str)
 {
@@ -21,9 +21,9 @@ void	check_if(t_list **a, t_list **b, char *str)
 	else if (!ft_strncmp(str, "ss\n", 3))
 		ss(a, b, 0);
 	else if (!ft_strncmp(str, "pa\n", 3))
-		push(a, b, 'a', 0);
+		push(b, a, 0);
 	else if (!ft_strncmp(str, "pb\n", 3))
-		push(a, b, 'b', 0);
+		push(a, b, 0);
 	else if (!ft_strncmp(str, "ra\n", 3))
 		rotate(a, 0);
 	else if (!ft_strncmp(str, "rb\n", 3))
@@ -61,7 +61,7 @@ int	main(int ac, char **av)
 
 	if (ac == 1 || is_integer(av, ac - 1, 1) || is_repeated(av, ac - 1, 1))
 		return (0);
-	stack_filling(&a, av, 0);
+	stack_filling(&a, av, ac - 1);
 	checker(&a, &b);
 	if (is_stack_sorted(a) && !b)
 		write(1, "OK\n", 3);

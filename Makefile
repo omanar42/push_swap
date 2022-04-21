@@ -4,52 +4,67 @@ CC		=	gcc
 RM		=	rm -f
 LIBFT	=	libft/libft.a
 
-SRCS	=	push_swap.c push_swap_utils.c push_swap_utils_2.c operations.c operations_2.c sorting_process.c sorting_process_2.c $(LIBFT)
-SRCSBN	=	checker.c push_swap_utils.c push_swap_utils_2.c operations.c operations_2.c get_next_line/get_next_line.c get_next_line/get_next_line_utils.c $(LIBFT)
+SRCS	=	srcs/push_swap.c srcs/push_swap_utils.c srcs/push_swap_utils_2.c srcs/operations.c srcs/operations_2.c srcs/sorting_process.c srcs/sorting_process_2.c $(LIBFT)
 OBJS	=	$(SRCS:.c=.o)
+SRCSBN	=	srcs/checker.c srcs/push_swap_utils.c srcs/push_swap_utils_2.c srcs/operations.c srcs/operations_2.c get_next_line/get_next_line.c get_next_line/get_next_line_utils.c $(LIBFT)
 OBJSBN	=	$(SRCSBN:.c=.o)
 
-NC		=	\033[0m
-GREEN	=	\033[0;32m
-
 define HEADER_M
-			                    .__                                         
-			______  __ __  _____|  |__        ________  _  _______  ______  
-			\____ \|  |  \/  ___/  |  \      /  ___/\ \/ \/ /\__  \ \____ \ 
-			|  |_> >  |  /\___ \|   Y  \     \___ \  \     /  / __ \|  |_> >
-			|   __/|____//____  >___|  /____/____  >  \/\_/  (____  /   __/ 
-			|__|              \/     \/_____/    \/               \/|__|    
-
+                    .__                                         
+______  __ __  _____|  |__        ________  _  _______  ______  
+\____ \|  |  \/  ___/  |  \      /  ___/\ \/ \/ /\__  \ \____ \ 
+|  |_> >  |  /\___ \|   Y  \     \___ \  \     /  / __ \|  |_> >
+|   __/|____//____  >___|  /____/____  >  \/\_/  (____  /   __/ 
+|__|              \/     \/_____/    \/               \/|__|    
 endef
 export HEADER_M
 
-all:	header $(NAME)
+define HEADER_B
+ _________ .__                   __                 
+ \_   ___ \|  |__   ____   ____ |  | __ ___________ 
+ /    \  \/|  |  \_/ __ \_/ ___\|  |/ // __ \_  __ \ 
+ \     \___|   Y  \  ___/\  \___|    <\  ___/|  | \/
+  \______  /___|  /\___  >\___  >__|_ \\\___  >__|   
+         \/     \/     \/     \/     \/    \/       
+endef
+export HEADER_B
 
-header:
-		@echo " ${GREEN}$$HEADER_M${NC} "
+all: header_m $(NAME)
+
+header_m:
+	@echo "\033[0;32m$$HEADER_M\033[0m\n"
+
+header_b:
+	@echo "\033[0;32m$$HEADER_B\033[0m\n"
 
 %.o: %.c
-		$(CC) -Wall -Wextra -Werror -c $< -o $@
+	@ $(CC) -Wall -Wextra -Werror -c $< -o $@
 
 $(LIBFT):
-		make -C libft
+	@echo "\033[0;36m</ Compiling libft >\033[0m"
+	@make -C libft
 
 $(NAME): $(OBJS) $(LIBFT)
-		$(CC) $(OBJS) -o $(NAME)
+	@echo "\033[0;36m</ Compiling push_swap >\033[0m"
+	@$(CC) $(OBJS) -o $(NAME)
+	@echo "\033[1;32mPush_swap has been compiled!\033[0m\n"
 
 $(CHECKER): $(OBJSBN) $(LIBFT)
-		$(CC) $(OBJSBN) -o $(CHECKER)
+	@echo "\033[0;36m</ Compiling checker >\033[0m"
+	@$(CC) $(OBJSBN) -o $(CHECKER)
+	@echo "\033[1;32mChecker has been compiled!\033[0m\n"
 
-bonus:	$(CHECKER)
+bonus: header_b $(CHECKER)
 
 clean:
-		$(RM) $(OBJS) $(OBJSBN)
-		make clean -C libft
+	@$(RM) $(OBJS) $(OBJSBN)
+	@make clean -C libft
 
-fclean:	clean
-		$(RM) $(NAME) $(CHECKER)
-		make fclean -C libft
+fclean: clean
+	@$(RM) $(NAME) $(CHECKER)
+	@make fclean -C libft
+	@echo "\n\033[0;31m</ EVERYTHING HAS BEEN DELETED! >\033[0m\n"
 
-re:		fclean all
+re: fclean all
 
-.PHONY:	all clean fclean re
+.PHONY: all clean fclean re bonus

@@ -6,11 +6,11 @@
 /*   By: omanar <omanar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 19:01:25 by omanar            #+#    #+#             */
-/*   Updated: 2022/04/15 01:16:46 by omanar           ###   ########.fr       */
+/*   Updated: 2022/04/19 01:50:47 by omanar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../include/push_swap.h"
 
 void	swap(t_list **s, char c)
 {
@@ -27,32 +27,20 @@ void	swap(t_list **s, char c)
 		ft_putstr_fd("sb\n", 1);
 }
 
-void	push(t_list **a, t_list **b, char c, int i)
+void	push(t_list **from, t_list **to, char c)
 {
 	t_list	*tmp;
 
+	if (!(*from))
+		return ;
+	tmp = *from;
+	*from = (*from)->next;
+	tmp->next = NULL;
+	ft_lstadd_front(to, tmp);
 	if (c == 'a')
-	{
-		if (!(*b))
-			return ;
-		tmp = *b;
-		*b = (*b)->next;
-		tmp->next = NULL;
-		ft_lstadd_front(a, tmp);
-		if (i != 0)
-			ft_putstr_fd("pa\n", 1);
-	}
+		ft_putstr_fd("pa\n", 1);
 	else if (c == 'b')
-	{
-		if (!(*a))
-			return ;
-		tmp = *a;
-		*a = (*a)->next;
-		tmp->next = NULL;
-		ft_lstadd_front(b, tmp);
-		if (i != 0)
-			ft_putstr_fd("pb\n", 1);
-	}
+		ft_putstr_fd("pb\n", 1);
 }
 
 void	rotate(t_list **s, char c)
