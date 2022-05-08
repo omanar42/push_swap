@@ -6,22 +6,11 @@
 /*   By: omanar <omanar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/07 03:26:45 by omanar            #+#    #+#             */
-/*   Updated: 2022/04/19 01:50:49 by omanar           ###   ########.fr       */
+/*   Updated: 2022/05/07 15:35:31 by omanar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
-
-void	arg_check(char **str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i])
-		i++;
-	is_integer(str, i, 0);
-	is_repeated(str, i, 0);
-}
 
 int	get_small_index(t_list *s)
 {

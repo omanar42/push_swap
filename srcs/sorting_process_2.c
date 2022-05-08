@@ -17,7 +17,7 @@ void	get_range(int *range1, int *range2, int ac, int *count)
 	int			x;
 	static int	i = 1;
 
-	x = ((ac <= 150) * 8) + ((ac > 150) * 18);
+	x = ((ac <= 150) * 5) + ((ac > 150) * 11);
 	if ((ac / 2) - ((ac / x) * i) < 0)
 		*range1 = 0;
 	else
